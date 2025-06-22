@@ -22,7 +22,7 @@ class DiscordEmbeds(GenericApi):
             hook_url = Config().general['custom_message_hook']
         if hook_url:
             try:
-                hook = Webhook.from_url(hook_url, adapter=RequestsWebhookAdapter(), )
+                hook = Webhook.from_url(hook_url, adapter=RequestsWebhookAdapter())
             except BaseException as e:
                 Logger.warning(f"Your custom_message_hook URL {hook_url} is invalid, Discord updates will not be sent")
                 Logger.error(f"Error initializing webhook {hook_url}: {e}")
